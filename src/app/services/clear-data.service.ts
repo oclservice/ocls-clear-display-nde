@@ -8,6 +8,7 @@ import { map, tap } from 'rxjs/operators';
 export class ClearDataService {
   constructor(private http: HttpClient) {}
 
+  // Helper functions to parse XML response from CLEAR API and convert it to JSON
   private parseXmlToJson(xmlString: string): any {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlString, 'application/xml');

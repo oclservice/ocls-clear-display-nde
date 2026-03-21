@@ -1,0 +1,52 @@
+/* OCLS CLEAR display */
+
+    .ocls-clear-display {
+        display: inline-flex;
+        margin: 0 0 1px 0;
+        color: #3a3a3a;
+        width:100%;
+        position:relative;
+    }
+
+    .ocls-clear-display-container {
+        font-size: small;
+        display: inline-block;
+        width: fit-content;
+        max-width: 100%;
+        align-self: flex-start;
+    }
+
+    .ocls-clear-term {
+        padding: 0 5px 0 0;
+        width:90%;
+    }
+
+    .ocls-clear-value {
+        padding: 0 5px 0 5px;
+        width:10%;
+    }
+    
+    .ocls-clear-odd {
+        background-color:#f1f1f1;
+    }
+    
+    .ocls-clear-compact {
+        width:unset;
+        background-color:unset;
+        padding: 0 2px 0 2px;
+    }
+
+    .ocls-clear-Yes {
+        background-color: #e7f4e4;
+        color: #212121;
+    }
+
+    .ocls-clear-No {
+        background-color: #f9dede;
+        color: #212121;
+    }
+
+    .ocls-clear-Ask {
+        background-color: #fff1d2;
+        color: #212121;
+    }
