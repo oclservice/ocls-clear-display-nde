@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import {selectorComponentMap} from "./custom1-module/customComponentMappings";
 import {TranslateModule} from "@ngx-translate/core";
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { AutoAssetSrcDirective } from './services/auto-asset-src.directive';
 import {SHELL_ROUTER} from "./injection-tokens";
 
@@ -21,6 +22,7 @@ export const AppModule = ({providers, shellRouter}: {providers:any, shellRouter:
     imports: [
       BrowserModule,
       CommonModule,
+      HttpClientModule,
       TranslateModule.forRoot({})
     ],
     providers: [...providers, {provide: SHELL_ROUTER, useValue: shellRouter}],
