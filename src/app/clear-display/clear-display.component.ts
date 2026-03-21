@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input} from '@angular/core';
+import { Component, Input, Inject} from '@angular/core';
 import { ClearDataService } from '../services/clear-data.service';
 
 type ClearTermConfig = {
@@ -30,25 +30,11 @@ export class ClearDisplayComponent {
 
   @Input() private hostComponent!: any;
 
-  constructor(
-    private clearDataService: ClearDataService
-  ) {}
+  constructor(@Inject('MODULE_PARAMETERS') public moduleParameters: any, private clearDataService: ClearDataService) {
+    console.log('Loaded module parameters for ClearDisplayComponent:', this.moduleParameters);
+  }
 
   protected clearData$ = this.clearDataService.clearData$;
-
-  protected getTooltipText(value: string | null | undefined): string {
-    if (!value) {
-      return '';
-    }
-
-    const parser = new DOMParser();
-    const decoded = parser.parseFromString(value, 'text/html').documentElement.textContent ?? '';
-
-    return decoded
-      .replace(/\u00a0/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim();
-  }
 
   private getPublicNote(): string | null {
     let publicNote = this.hostComponent?.electronicService?.publicNote;
@@ -57,47 +43,6 @@ export class ClearDisplayComponent {
     }
     return publicNote;
   }
-
-  // Temporarily hardcode settings
-  protected oclsClearDisplayConfig$ = {
-        compact_display : true,
-        hover_text : false,
-        title_text: '<b>Usage rights (hover on answer for details):</b>',
-        local_instance: '',
-        footer_text: 'More information',
-        terms: {
-            cms: {
-                short_text: 'CMS?'
-            },
-            course_pack: {
-                short_text: 'Course Packs?'
-            },
-            distribute: {
-                hide: true
-            },
-            durable_url: {
-                short_text: 'Link?'
-            },
-            e_reserves: {
-                short_text: 'E-Reserve?'
-            },
-            ill_print: {
-                short_text: 'ILL?'
-            },
-            local_loading: {
-                hide: true
-            },
-            print: {
-                short_text: 'Print?'
-            },
-            research: {
-                hide: true
-            },
-            text_mining: {
-                hide: true
-            }
-        }
-  };
 
   protected readonly displayOrder = [
     'cms',
@@ -119,12 +64,12 @@ export class ClearDisplayComponent {
 
     return this.displayOrder
       .filter((key) => {
-        const termConfig = this.oclsClearDisplayConfig$.terms[key as keyof typeof this.oclsClearDisplayConfig$.terms] as ClearTermConfig | undefined;
+        const termConfig = this.moduleParameters.terms[key as keyof typeof this.moduleParameters.terms] as ClearTermConfig | undefined;
         const termData = data[key] as ClearTermData | undefined;
         return !!termData && !termConfig?.hide;
       })
       .map((key) => {
-        const termConfig = this.oclsClearDisplayConfig$.terms[key as keyof typeof this.oclsClearDisplayConfig$.terms] as ClearTermConfig | undefined;
+        const termConfig = this.moduleParameters.terms[key as keyof typeof this.moduleParameters.terms] as ClearTermConfig | undefined;
         const termData = data[key] as ClearTermData;
 
         return {

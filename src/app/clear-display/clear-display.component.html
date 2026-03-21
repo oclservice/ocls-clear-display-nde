@@ -1,17 +1,17 @@
 <div *ngIf="clearData$ | async as clearData" class="ocls-clear-display-container">
-    <div class="ocls-clear-title-text" [innerHTML]="oclsClearDisplayConfig$.title_text"></div>
+    <div class="ocls-clear-title-text" [innerHTML]="moduleParameters.title_text"></div>
     <div *ngFor="let term of getVisibleTerms(clearData.data); let isOdd = odd" class="ocls-clear-display" 
-    [ngClass]="{'ocls-clear-compact': oclsClearDisplayConfig$.compact_display, 'ocls-clear-odd': isOdd}">
-        <div class="ocls-clear-term" [attr.title]="oclsClearDisplayConfig$.hover_text ? getTooltipText(term.caseText) : null">
+    [ngClass]="{'ocls-clear-compact': moduleParameters.compact_display, 'ocls-clear-odd': isOdd}">
+        <div class="ocls-clear-term" [attr.title]="moduleParameters.hover_text ? term.caseText : null">
             {{ term.shortText }}
         </div>
         <div class="ocls-clear-value ocls-clear-{{ term.usage }}"
-        [ngClass]="{'ocls-clear-compact': oclsClearDisplayConfig$.compact_display}"
-        [attr.title]="oclsClearDisplayConfig$.hover_text ? getTooltipText(term.shortDefinition || term.longDefinition || term.caseText) : null">
+        [ngClass]="{'ocls-clear-compact': moduleParameters.compact_display}"
+        [attr.title]="moduleParameters.hover_text ? (term.shortDefinition || term.longDefinition || term.caseText) : null">
             {{ term.usage }}
         </div>
     </div>
     <div class="ocls-clear-footer-text">
-        <a target="_blank" [href]="clearData.publicUrl">{{ oclsClearDisplayConfig$.footer_text }}</a>
+        <a target="_blank" [href]="clearData.publicUrl">{{ moduleParameters.footer_text }}</a>
     </div>
 </div>
