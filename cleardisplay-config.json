@@ -1,6 +1,6 @@
 {
     "compact_display" : true,
-    "hover_text" : false,
+    "hover_text" : true,
     "title_text": "<b>Usage rights (hover on answer for details):</b>",
     "local_instance": "",
     "footer_text": "More information",

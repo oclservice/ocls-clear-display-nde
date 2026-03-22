@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({ providedIn: 'root' })
@@ -84,19 +84,6 @@ export class ClearDataService {
     return result;
   }
 
-  // Define clearData as an observable with getter and setter.
-  // This will help prevent the same data being fetched multiple times by different components.
-  private _clearData = new BehaviorSubject<any>(null);
-  public clearData$ = this._clearData.asObservable();
-
-  set clearData(data: any) {
-    this._clearData.next(data);
-  }
-
-  get clearData() {
-    return this._clearData.value;
-  }
-
   public resourceName: string = '';
 
   // Function to fetch data from OUR/CLEAR "API"
@@ -117,10 +104,6 @@ export class ClearDataService {
         console.log('Received XML response from CLEAR API');
         const parsedData = this.parseXmlToJson(xmlResponse);
         return { data: parsedData, publicUrl };
-      }),
-      tap(data => {
-        console.log('Setting clearData with fetched data:', data);
-        this.clearData = data;
       })
     );
   }

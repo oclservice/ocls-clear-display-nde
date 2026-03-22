@@ -1,4 +1,5 @@
 <div *ngIf="clearData$ | async as clearData" class="ocls-clear-display-container">
+    <div *ngIf="originalNote" [innerHTML]="originalNote" class="ocls-clear-title-text"></div>
     <div class="ocls-clear-title-text" [innerHTML]="moduleParameters.title_text"></div>
     <div *ngFor="let term of getVisibleTerms(clearData.data); let isOdd = odd" class="ocls-clear-display" 
     [ngClass]="{'ocls-clear-compact': moduleParameters.compact_display, 'ocls-clear-odd': isOdd}">
