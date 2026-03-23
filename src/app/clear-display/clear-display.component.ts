@@ -34,47 +34,7 @@ export class ClearDisplayComponent {
 
   constructor(@Inject('MODULE_PARAMETERS') public moduleParameters: any, private clearDataService: ClearDataService) {
     // TODO: find a better way to switch between test parameters and those provided by the add-on functionality.
-    //this.moduleParameters = this.normalizeParams(moduleParameters);
-    this.moduleParameters = {
-    "compact_display" : true,
-    "hover_text" : true,
-    "title_text": "<b>Usage rights (hover on answer for details):</b>",
-    "local_instance": "",
-    "footer_text": "More information",
-    "terms": {
-        "cms": {
-            "short_text": "CMS?"
-        },
-        "course_pack": {
-            "short_text": "Course Packs?"
-        },
-        "distribute": {
-            "hide": true
-        },
-        "durable_url": {
-            "short_text": "Link?"
-        },
-        "e_reserves": {
-            "short_text": "E-Reserve?"
-        },
-        "ill_print": {
-            "short_text": "ILL?"
-        },
-        "local_loading": {
-            "hide": true
-        },
-        "print": {
-            "short_text": "Print?"
-        },
-        "research": {
-            "hide": true
-        },
-        "text_mining": {
-            "hide": true
-        }
-    }
-};
-    
+    this.moduleParameters = this.normalizeParams(moduleParameters);
     console.log('Loaded module parameters for ClearDisplayComponent:', this.moduleParameters);
   }
 
