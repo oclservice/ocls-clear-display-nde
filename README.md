@@ -9,11 +9,11 @@ the [OCUL Usage Rights (OUR) service](https://learn.scholarsportal.info/all-guid
 
 Once enabled, permitted uses information pulled from CLEAR/OUR are displayed underneath each View It item:
 
-![Screenshot of the permitted uses module enabled on the Primo interface](clear-display-compact-screenshot.png)
+![Screenshot of the permitted uses module enabled on the Primo interface](readme-files/clear-display-compact-screenshot.png)
 
 Alternatively, you can opt for a more verbose display of permitted uses (set `compact_display` to `false` below):
 
-![Screenshot of the permitted uses module enabled on the Primo interface](clear-display-verbose-screenshot.png)
+![Screenshot of the permitted uses module enabled on the Primo interface](readme-files/clear-display-verbose-screenshot.png)
 
 ## How it works
 
