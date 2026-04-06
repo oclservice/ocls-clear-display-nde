@@ -9,6 +9,12 @@ the [OCUL Usage Rights (OUR) service](https://learn.scholarsportal.info/all-guid
 
 Once enabled, permitted uses information pulled from CLEAR/OUR are displayed underneath each View It item:
 
+![Screenshot of the permitted uses module enabled on the Primo interface](clear-display-compact-screenshot.png)
+
+Alternatively, you can opt for a more verbose display of permitted uses (set `compact_display` to `false` below):
+
+![Screenshot of the permitted uses module enabled on the Primo interface](clear-display-verbose-screenshot.png)
+
 ## How it works
 
 This module works by identifying links to CLEAR/OUR records provided in the Public Note for a collection. More specifically,
@@ -31,7 +37,7 @@ Edit the config file according to your needs:
 
 Property | Effect
 ---------|-------
-`compact_display` | Set this to `true` to display a compact version of the usage rights, similar to the old "SFX" CLEAR/OUR display. Short text for each individual permission is set in the `terms` object (see below).
+`compact_display` | Set this to `true` to display a compact version of the usage rights. Short text for each individual permission is set in the `terms` object (see below).
 `hover_text` | Set this to `true` to add a hover effect with the full response text over the brief response. When using the `compact_display` setting, this also adds the full question text over the user defined short text.
 `title_text` | Defines what text is to be displayed above the permitted uses table. This value can contain basic HTML tags to control appearance.
 `footer_text` | Defines what text is to be displayed underneath the permitted uses table. When `display_in_note` is not enabled, this text is wrapped with a hyperlink to the full CLEAR/OUR record.
@@ -55,6 +61,9 @@ Select **Add row** and fill in the fields as follows:
 Click save and make sure the add-on is enabled on the list:
 
 ![Screenshot of enabled ann-on](readme-files/enabled-addon.png)
+
+Refer to the [Exlibris official add-on documentation](https://knowledge.exlibrisgroup.com/Primo/Product_Documentation/020Primo_VE/Primo_VE_(English)/120Other_Configurations/Managing_Add-Ons_for_the_NDE_UI)
+for more information.
 
 ## CLEAR Local override
 
