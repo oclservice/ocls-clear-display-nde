@@ -78,6 +78,47 @@ In other words, if a CLEAR Local record exists, it will be displayed instead of 
 the CLEAR Central record will be used instead.
 
 
+## Add-on development
+
+The code in this repository builds on the [Primo NDE customModule](https://github.com/ExLibrisGroup/customModule) functionality from ExLibris, where more information
+on development can be found.
+
+To update the add-on after code changes:
+
+#### 1. Inside the `customModule` directory, install necessary npm packages
+
+If not done before, run
+
+```
+npm install
+```
+
+#### 2. Make sure buildsettings.env contains the following
+
+```
+INST_ID=OCLS
+VIEW_ID=CLEARDISPLAY
+ADDON_NAME=oclscleardisplay
+```
+
+#### 3. Build the add-on
+
+Inside the `customModule` directory, run
+
+```
+npm run build
+```
+
+This will generate a new directory named `OCLS-CLEARDISPLAY` inside the `dist` directory.
+
+#### 4. Deploy the add-on
+
+Copy the contents of `OCLS-CLEARDISPLAY` into the directory used for deployment (on tlpstoryline.ca). Be sure to **replace** all existing contents.
+
+Changes will immediately be applied to all colleges that have enabled the add-on. Test to make sure changes were successful.
+
+Refer to the [Primo NDE customModule](https://github.com/ExLibrisGroup/customModule) repository for more information on NDE add-on development.
+
 ## A note on accessibility
 
 The colours of the text and background for the "Yes/No/Ask" boxes in the provided CSS were chosen to have a contrast ratio
