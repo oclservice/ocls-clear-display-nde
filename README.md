@@ -85,15 +85,15 @@ on development can be found.
 
 To update the add-on after code changes:
 
-#### 1. Inside the `customModule` directory, install necessary npm packages
+#### 1. Install necessary npm packages
 
-If not done before, run
+If not done before, inside the `customModule` directory run
 
 ```
 npm install
 ```
 
-#### 2. Make sure buildsettings.env contains the following
+#### 2. Make sure `buildsettings.env`    contains the following
 
 ```
 INST_ID=OCLS
