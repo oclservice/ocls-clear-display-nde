@@ -56,7 +56,7 @@ Select **Add row** and fill in the fields as follows:
 * Add-on Name: `oclscleardisplay`
 * Add-on Configuration File: select and upload the config file you edited in the previous step.
 * View: Choose for which view(s) you want to enable the add-on, or **All**. This will only work on NDE views.
-* Add-on URL: `https://tlpstoryline.ca/primo/cleardisplay`
+* Add-on URL: paste here the add-on URL (provided by OCLS)
 
 Click save and make sure the add-on is enabled on the list:
 
@@ -113,7 +113,7 @@ This will generate a new directory named `OCLS-CLEARDISPLAY` inside the `dist` d
 
 #### 4. Deploy the add-on
 
-Copy the contents of `OCLS-CLEARDISPLAY` into the directory used for deployment (on tlpstoryline.ca). Be sure to **replace** all existing contents.
+Copy the contents of `OCLS-CLEARDISPLAY` into the directory used for deployment. Be sure to **replace** all existing contents.
 
 Changes will immediately be applied to all colleges that have enabled the add-on. Test to make sure changes were successful.
 

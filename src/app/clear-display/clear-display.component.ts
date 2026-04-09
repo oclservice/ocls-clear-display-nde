@@ -136,6 +136,12 @@ export class ClearDisplayComponent {
     return publicNote;
   }
 
+  private setPublicNote(publicNote: string): void {
+    if (this.hostComponent?.electronicService) {
+      this.hostComponent.electronicService.publicNote = publicNote;
+    }
+  }
+
   // TODO: avoid having to repeat this list here, instead fetch it from the config or the data keys
   protected readonly displayOrder = [
     'cms',
@@ -181,6 +187,7 @@ export class ClearDisplayComponent {
     this.originalNote = this.stripEmptyHtmlElements(
       publicNoteHtml.replace(/<a +href="(https?:\/\/(clear|ocul)\.scholarsportal\.info)\/([^"]+)\/(.+?)".*?<\/a>/g, '')
     );
+    this.setPublicNote(this.originalNote);
 
     if (!clearLinks.length) {
       return of(null);
