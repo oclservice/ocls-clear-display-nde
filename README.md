@@ -17,10 +17,7 @@ Alternatively, you can opt for a more verbose display of permitted uses (set `co
 
 You can also choose between always displaying image rights or using a button to toggle visibility on and off (see `toggle_display` in settings below):
 
-<p float="left">
-  <img src="readme-files/clear-display-toggle-closed.png" width="45%" valign="top" alt="Screenshot of closed display toggle"/>
-  <img src="readme-files/clear-display-toggle-open.png" width="45%" valign="top" alt="Screenshot of open display toggle"/> 
-</p>
+![Screenshot of open display toggle](readme-files/clear-display-toggle-open.png)
 
 ## How it works
 
