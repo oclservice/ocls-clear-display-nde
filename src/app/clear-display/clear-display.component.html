@@ -1,6 +1,6 @@
 <ng-container *ngIf="clearData$ | async as clearData">
     <div *ngIf="moduleParameters.toggle_display?.enable" class="ocls-clear-toggle" (click)="toggleClearDisplay()">
-        {{ isClearDisplayVisible ? '▼ ' + moduleParameters.toggle_display.hide : '▶ ' + moduleParameters.toggle_display.show }}
+        {{ isClearDisplayVisible ? moduleParameters.toggle_display.hide : moduleParameters.toggle_display.show }}
     </div>
 
     <div *ngIf="isClearDisplayVisible" class="ocls-clear-display-container">
