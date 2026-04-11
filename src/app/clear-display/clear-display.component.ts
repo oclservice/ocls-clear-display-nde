@@ -97,7 +97,7 @@ export class ClearDisplayComponent {
   }
 
   protected clearData$: Observable<any> = of(null);
-
+  protected isClearDisplayVisible = true;
   public originalNote = '';
 
   // Helper function to clean up remaining empty HTML elements from the original note once CLEAR links have been removed.
@@ -182,6 +182,10 @@ export class ClearDisplayComponent {
       });
   }
 
+  protected toggleClearDisplay(): void {
+    this.isClearDisplayVisible = !this.isClearDisplayVisible;
+  }
+
   private getOurData(publicNoteHtml: string): Observable<any> {
     let clearLinks = [...publicNoteHtml.matchAll(/<a +href="(https?:\/\/(clear|ocul)\.scholarsportal\.info)\/([^"]+)\/(.+?)".*?<\/a>/g)];
     this.originalNote = this.stripEmptyHtmlElements(
@@ -214,6 +218,10 @@ export class ClearDisplayComponent {
 
   ngOnInit() {
     console.log('ClearDisplayComponent initialized');
+
+    if (this.moduleParameters.toggle_display?.enable == true) {
+      this.isClearDisplayVisible = false;
+    }
 
     let publicNote = this.getPublicNote();
     console.log('Public note from host component:', publicNote);

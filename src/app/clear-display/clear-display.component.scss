@@ -1,5 +1,18 @@
 /* OCLS CLEAR display */
 
+    .ocls-clear-toggle {
+        margin: 0 0 6px 50px;
+        padding: 4px 16px;
+        border: 1px solid var(--sys-primary);
+        color: var(--sys-primary);
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.85rem;
+        display: block;
+        width: fit-content;
+        max-width: 100%;
+    }
+
     .ocls-clear-display {
         display: inline-flex;
         margin: 0 0 1px 0;

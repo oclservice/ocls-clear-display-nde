@@ -1,17 +1,23 @@
-<div *ngIf="clearData$ | async as clearData" class="ocls-clear-display-container">
-    <div class="ocls-clear-title-text" [innerHTML]="moduleParameters.title_text"></div>
-    <div *ngFor="let term of getVisibleTerms(clearData.data); let isOdd = odd" class="ocls-clear-display" 
-    [ngClass]="{'ocls-clear-compact': moduleParameters.compact_display, 'ocls-clear-odd': isOdd}">
-        <div class="ocls-clear-term" [attr.title]="moduleParameters.hover_text ? term.caseText : null">
-            {{ term.shortText }}
+<ng-container *ngIf="clearData$ | async as clearData">
+    <div *ngIf="moduleParameters.toggle_display?.enable" class="ocls-clear-toggle" (click)="toggleClearDisplay()">
+        {{ isClearDisplayVisible ? '▼ ' + moduleParameters.toggle_display.hide : '▶ ' + moduleParameters.toggle_display.show }}
+    </div>
+
+    <div *ngIf="isClearDisplayVisible" class="ocls-clear-display-container">
+        <div class="ocls-clear-title-text" [innerHTML]="moduleParameters.title_text"></div>
+        <div *ngFor="let term of getVisibleTerms(clearData.data); let isOdd = odd" class="ocls-clear-display" 
+        [ngClass]="{'ocls-clear-compact': moduleParameters.compact_display, 'ocls-clear-odd': isOdd}">
+            <div class="ocls-clear-term" [attr.title]="moduleParameters.hover_text ? term.caseText : null">
+                {{ term.shortText }}
+            </div>
+            <div class="ocls-clear-value ocls-clear-{{ term.usage }}"
+            [ngClass]="{'ocls-clear-compact': moduleParameters.compact_display}"
+            [attr.title]="moduleParameters.hover_text ? (term.shortDefinition || term.longDefinition || term.caseText) : null">
+                {{ term.usage }}
+            </div>
         </div>
-        <div class="ocls-clear-value ocls-clear-{{ term.usage }}"
-        [ngClass]="{'ocls-clear-compact': moduleParameters.compact_display}"
-        [attr.title]="moduleParameters.hover_text ? (term.shortDefinition || term.longDefinition || term.caseText) : null">
-            {{ term.usage }}
+        <div class="ocls-clear-footer-text">
+            <a target="_blank" [href]="clearData.publicUrl">{{ moduleParameters.footer_text }}</a>
         </div>
     </div>
-    <div class="ocls-clear-footer-text">
-        <a target="_blank" [href]="clearData.publicUrl">{{ moduleParameters.footer_text }}</a>
-    </div>
-</div>
+</ng-container>

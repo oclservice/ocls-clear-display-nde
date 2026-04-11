@@ -15,6 +15,10 @@ Alternatively, you can opt for a more verbose display of permitted uses (set `co
 
 ![Screenshot of the permitted uses module enabled on the Primo interface](readme-files/clear-display-verbose-screenshot.png)
 
+You can also choose between always displaying image rights or using a button to toggle visibility on and off (see `toggle_display` in settings below):
+
+![Screenshot of closed toggle](readme-files/clear-display-toggle-closed.png) ![Screenshot of open toggle](readme-files/clear-display-toggle-open.png)
+
 ## How it works
 
 This module works by identifying links to CLEAR/OUR records provided in the Public Note for a collection. More specifically,
@@ -39,6 +43,10 @@ Property | Effect
 ---------|-------
 `compact_display` | Set this to `true` to display a compact version of the usage rights. Short text for each individual permission is set in the `terms` object (see below).
 `hover_text` | Set this to `true` to add a hover effect with the full response text over the brief response. When using the `compact_display` setting, this also adds the full question text over the user defined short text.
+`toggle_display`| This object defines whether to display a button to toggle visibility of usage rights on/off.
+`∟ enable` | Set this to `true` to enable the toggle button behaviour.
+`∟ show` | Text to display on the toggle button to show usage rights.
+`∟ hide` | Text to display on the toggle button to hide usage rights.
 `title_text` | Defines what text is to be displayed above the permitted uses table. This value can contain basic HTML tags to control appearance.
 `footer_text` | Defines what text is to be displayed underneath the permitted uses table. When `display_in_note` is not enabled, this text is wrapped with a hyperlink to the full CLEAR/OUR record.
 `local_instance` | This value can be set to a custom OUR instance name to **override** the one in the original URL. See note below regarding CLEAR Local override.

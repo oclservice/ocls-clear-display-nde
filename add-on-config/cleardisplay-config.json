@@ -1,6 +1,11 @@
 {
     "compact_display" : true,
     "hover_text" : true,
+    "toggle_display": {
+        "enable": false,
+        "show": "Show usage rights",
+        "hide": "Hide usage rights"
+    },
     "title_text": "<b>Usage rights (hover on answer for details):</b>",
     "local_instance": "",
     "footer_text": "More information",
