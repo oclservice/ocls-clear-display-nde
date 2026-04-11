@@ -51,8 +51,8 @@ Property | Effect
 `footer_text` | Defines what text is to be displayed underneath the permitted uses table. When `display_in_note` is not enabled, this text is wrapped with a hyperlink to the full CLEAR/OUR record.
 `local_instance` | This value can be set to a custom OUR instance name to **override** the one in the original URL. See note below regarding CLEAR Local override.
 `terms` | A dictionary of objects for each permission term supplied by CLEAR/OUR. For each term, you can define the following two properties:
-`short_text`| Set this value to the short text you want to display when using the `compact_display` mode (see above).
-`hide` | Set this to true if you want to hide a particular term from the display.
+`∟ short_text`| Set this value to the short text you want to display when using the `compact_display` mode (see above).
+`∟ hide` | Set this to true if you want to hide a particular term from the display.
 
 ### Step 2: Load the add-on
 
