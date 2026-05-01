@@ -64,7 +64,7 @@ Select **Add row** and fill in the fields as follows:
 * Add-on Name: `oclscleardisplay`
 * Add-on Configuration File: select and upload the config file you edited in the previous step.
 * View: Choose for which view(s) you want to enable the add-on, or **All**. This will only work on NDE views.
-* Add-on URL: paste here the add-on URL (provided by OCLS)
+* Add-on URL: `https://tlpstoryline.ca/primo/cleardisplay`
 
 Click save and make sure the add-on is enabled on the list:
 
