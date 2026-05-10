@@ -44,15 +44,15 @@ Property | Effect
 `compact_display` | Set this to `true` to display a compact version of the usage rights. Short text for each individual permission is set in the `terms` object (see below).
 `hover_text` | Set this to `true` to add a hover effect with the full response text over the brief response. When using the `compact_display` setting, this also adds the full question text over the user defined short text.
 `toggle_display`| This object defines whether to display a button to toggle visibility of usage rights on/off.
-`∟ enable` | Set this to `true` to enable the toggle button behaviour.
-`∟ show` | Text to display on the toggle button to show usage rights.
-`∟ hide` | Text to display on the toggle button to hide usage rights.
+∟ `enable` | Set this to `true` to enable the toggle button behaviour.
+∟ `show` | Text to display on the toggle button to show usage rights.
+∟ `hide` | Text to display on the toggle button to hide usage rights.
 `title_text` | Defines what text is to be displayed above the permitted uses table. This value can contain basic HTML tags to control appearance.
 `footer_text` | Defines what text is to be displayed underneath the permitted uses table. When `display_in_note` is not enabled, this text is wrapped with a hyperlink to the full CLEAR/OUR record.
 `local_instance` | This value can be set to a custom OUR instance name to **override** the one in the original URL. See note below regarding CLEAR Local override.
 `terms` | A dictionary of objects for each permission term supplied by CLEAR/OUR. For each term, you can define the following two properties:
-`∟ short_text`| Set this value to the short text you want to display when using the `compact_display` mode (see above).
-`∟ hide` | Set this to true if you want to hide a particular term from the display.
+∟ `short_text`| Set this value to the short text you want to display when using the `compact_display` mode (see above).
+∟ `hide` | Set this to true if you want to hide a particular term from the display.
 
 ### Step 2: Load the add-on
 
@@ -85,6 +85,44 @@ This can be achieved by setting the `local_instance` variable in the configurati
 In other words, if a CLEAR Local record exists, it will be displayed instead of the CLEAR Central record. If no CLEAR Local record exists for that resource,
 the CLEAR Central record will be used instead.
 
+## Customize colours
+
+It is possible to override the default colours of the CLEAR plugin by adding the following lines to the `assets/css/custom.css` file of the view's
+custom package. For help on working with custom packages, refer to the [ExLibris documentation](https://knowledge.exlibrisgroup.com/Primo/Product_Documentation/020Primo_VE/Primo_VE_(English)/030Primo_VE_User_Interface/010NDE_UI_Customization_-_Best_Practices#Creating_and_Deploying_a_Customization_Package).
+
+```CSS
+/*CLEAR CUSTOM COLOURS*/
+ 
+.ocls-clear-Yes{
+    background-color: #e7f4e4;
+    color: #212121;              
+}
+
+.ocls-clear-No{
+    background-color: #f9dede;
+    color: #212121;
+}
+
+.ocls-clear-Ask{
+    background-color: #fff1d2;
+    color: #212121;       
+}
+```
+
+Replace the sample colour codes by the desired ones. 
+
+### A note on accessibility
+
+The default colours of the text and background for the "Yes/No/Ask" boxes were chosen to have a contrast ratio
+of at least 4.5:1 as per [WCAG 2.0](https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#contrast-minimum):
+
+* "Yes": #212121 on #e7f4e4 (contrast ratio 14.2:1)
+* "No": #212121 on #f9dede (contrast ratio 12.7:1)
+* "Ask": #212121 on #fff1d2 (contrast ratio 14.4:1)
+
+These colour values come from the [Carnegie Museum of Pittsburgh Web Accessibility Guidelines colour palette](http://web-accessibility.carnegiemuseums.org/design/color/).
+
+It is recommended to aim for a similar ratio when selecting custom colours.
 
 ## Add-on development
 
@@ -126,15 +164,3 @@ Copy the contents of `OCLS-CLEARDISPLAY` into the directory used for deployment.
 Changes will immediately be applied to all colleges that have enabled the add-on. Test to make sure changes were successful.
 
 Refer to the [Primo NDE customModule](https://github.com/ExLibrisGroup/customModule) repository for more information on NDE add-on development.
-
-## A note on accessibility
-
-The colours of the text and background for the "Yes/No/Ask" boxes in the provided CSS were chosen to have a contrast ratio
-of at least 4.5:1 as per [WCAG 2.0](https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#contrast-minimum):
-
-* "Yes": #212121 on #e7f4e4 (contrast ratio 14.2:1)
-* "No": #212121 on #f9dede (contrast ratio 12.7:1)
-* "Ask": #212121 on #fff1d2 (contrast ratio 14.4:1)
-
-These colour values come from the [Carnegie Museum of Pittsburgh Web Accessibility Guidelines colour palette](http://web-accessibility.carnegiemuseums.org/design/color/).
-
